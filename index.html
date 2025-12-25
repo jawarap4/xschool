@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruang Karya Siswa</title>
+
+<style>
+:root{
+  --utama:#1e3a8a;--aksen:#2563eb;--latar:#f8fafc;--teks:#1f2937;
+}
+body{font-family:Arial,sans-serif;margin:0;background:var(--latar);color:var(--teks);}
+header{background:white;border-bottom:3px solid var(--utama);padding:20px}
+h1{margin:0;color:var(--utama)}
+.container{max-width:1200px;margin:auto;padding:20px}
+.search{width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:white;border-radius:12px;padding:12px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+footer{text-align:center;background:white;padding:16px;margin-top:40px;font-size:13px}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center}
+.modal-content{background:white;width:90%;max-width:520px;border-radius:12px;padding:16px;position:relative}
+.close{position:absolute;top:10px;right:12px;cursor:pointer}
+.carousel img{width:100%;height:220px;object-fit:cover;border-radius:8px;display:none}
+.carousel img.active{display:block}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>Ruang Karya Siswa</h1>
+  <p>Media Publikasi Program Pengembangan Sekolah</p>
+</header>
+
+<div class="container">
+  <input class="search" id="search" placeholder="Cari karya siswa...">
+  <div class="grid" id="grid"></div>
+</div>
+
+<footer>© 2025 SMA/SMK — Media publikasi karya peserta didik</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="tutup()">✖</span>
+    <div class="carousel" id="carousel"></div>
+    <h3 id="md-nama"></h3>
+    <p id="md-info"></p>
+    <p id="md-desc"></p>
+    <a id="md-drive" target="_blank">Google Drive</a>
+  </div>
+</div>
+
+<script>
+const SHEET_ID = "1JlsulJ9pVL7UeeH3SK0U5XA84LhNKFzEsWN4VdH5QrA";
+const SHEET_NAME = "Sheet1"; 
+const URL = `opensheet.elk.sh{SHEET_ID}/${SHEET_NAME}`;
+
+let data = [];
+
+fetch(URL)
+  .then(r => r.json())
+  .then(d => {
+    if (Array.isArray(d)) {
+      data = d;
+      render(d);
+    } else {
+      throw new Error("Data format is not an array");
+    }
+  })
+  .catch(e => {
+    console.error("Gagal mengambil data:", e);
+    document.getElementById("grid").innerHTML = "Data gagal dimuat. Pastikan URL dan akses Sheet benar.";
+  });
+
+function render(arr) {
+  const g = document.getElementById("grid");
+  g.innerHTML = "";
+  arr.forEach(x => {
+    // Logika menampilkan gambar thumbnail dari Drive
+    let thumb = "via.placeholder.com";
+    if (x.thumbnail) {
+      const fileId = x.thumbnail.match(/[-\w]{25,}/);
+      if (fileId) thumb = `drive.google.com{fileId}&sz=w400`;
+    }
+
+    g.innerHTML += `
+      <div class="card" onclick='detail(${JSON.stringify(x).replace(/'/g, "&apos;")})'>
+        <img src="${thumb}">
+        <h3>${x.nama_siswa || 'Siswa'}</h3>
+        <p>${x.kelas || '-'} • ${x.program || '-'}</p>
+      </div>`;
+  });
+}
+
+
+function tutup(){document.getElementById("modal").style.display="none";}
+</script>
+</body>
+</html>
