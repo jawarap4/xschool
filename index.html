@@ -1,101 +1,194 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruang Karya Siswa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Karya Siswa | Showcase 2025</title>
+    <!-- Link Font & Ikon -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
 
-<style>
-:root{
-  --utama:#1e3a8a;--aksen:#2563eb;--latar:#f8fafc;--teks:#1f2937;
-}
-body{font-family:Arial,sans-serif;margin:0;background:var(--latar);color:var(--teks);}
-header{background:white;border-bottom:3px solid var(--utama);padding:20px}
-h1{margin:0;color:var(--utama)}
-.container{max-width:1200px;margin:auto;padding:20px}
-.search{width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.card{background:white;border-radius:12px;padding:12px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
-footer{text-align:center;background:white;padding:16px;margin-top:40px;font-size:13px}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: var(--text-dark);
+            margin: 0;
+            min-height: 100vh;
+        }
 
-/* modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center}
-.modal-content{background:white;width:90%;max-width:520px;border-radius:12px;padding:16px;position:relative}
-.close{position:absolute;top:10px;right:12px;cursor:pointer}
-.carousel img{width:100%;height:220px;object-fit:cover;border-radius:8px;display:none}
-.carousel img.active{display:block}
-</style>
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        h1 { font-size: 2.5rem; margin: 0; color: var(--primary); letter-spacing: -1px; }
+
+        .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; }
+
+        .search-wrapper {
+            background: white;
+            padding: 8px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .search-wrapper input {
+            width: 100%; border: none; padding: 15px; outline: none; font-size: 1rem; border-radius: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .card img {
+            width: 100%; height: 200px; object-fit: cover; border-radius: 18px;
+            background: #eee;
+        }
+
+        .card-content { padding: 15px 8px; }
+        .card-content h3 { margin: 0 0 8px; font-size: 1.2rem; }
+        .badge {
+            display: inline-block; background: #e0e7ff; color: #4338ca;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+        }
+
+        /* Modal Simple */
+        .modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            display: none; align-items: center; justify-content: center; z-index: 100;
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background: white; padding: 30px; border-radius: 24px; width: 90%; max-width: 500px;
+            position: relative; animation: slideUp 0.3s ease-out;
+        }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .btn-close { position: absolute; top: 20px; right: 20px; cursor: pointer; border: none; background: #f1f5f9; border-radius: 50%; width: 32px; height: 32px; }
+    </style>
 </head>
-
 <body>
+
 <header>
-  <h1>Ruang Karya Siswa</h1>
-  <p>Media Publikasi Program Pengembangan Sekolah</p>
+    <h1>Ruang Karya Siswa</h1>
+    <p style="color: var(--text-light)">Galeri Inspirasi & Kreativitas Peserta Didik</p>
 </header>
 
 <div class="container">
-  <input class="search" id="search" placeholder="Cari karya siswa...">
-  <div class="grid" id="grid"></div>
+    <div class="search-wrapper">
+        <input type="text" id="search" placeholder="Cari berdasarkan nama, kelas, atau karya...">
+    </div>
+    
+    <div id="grid" class="grid">
+        <!-- Data akan muncul di sini -->
+    </div>
 </div>
 
-<footer>© 2025 SMA/SMK — Media publikasi karya peserta didik</footer>
-
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="tutup()">✖</span>
-    <div class="carousel" id="carousel"></div>
-    <h3 id="md-nama"></h3>
-    <p id="md-info"></p>
-    <p id="md-desc"></p>
-    <a id="md-drive" target="_blank">Google Drive</a>
-  </div>
+    <div class="modal-content">
+        <button class="btn-close" onclick="tutup()">✕</button>
+        <div id="modal-body"></div>
+    </div>
 </div>
 
 <script>
-const SHEET_ID = "1JlsulJ9pVL7UeeH3SK0U5XA84LhNKFzEsWN4VdH5QrA";
-const SHEET_NAME = "Sheet1"; 
-const URL = `opensheet.elk.sh{SHEET_ID}/${SHEET_NAME}`;
+    // KONFIGURASI DATA
+    const SHEET_ID = "1JlsulJ9pVL7UeeH3SK0U5XA84LhNKFzEsWN4VdH5QrA";
+    const TAB_NAME = "Sheet1";
+    const API_URL = `opensheet.elk.sh{SHEET_ID}/${TAB_NAME}`;
 
-let data = [];
+    let dataSiswa = [];
 
-fetch(URL)
-  .then(r => r.json())
-  .then(d => {
-    if (Array.isArray(d)) {
-      data = d;
-      render(d);
-    } else {
-      throw new Error("Data format is not an array");
-    }
-  })
-  .catch(e => {
-    console.error("Gagal mengambil data:", e);
-    document.getElementById("grid").innerHTML = "Data gagal dimuat. Pastikan URL dan akses Sheet benar.";
-  });
-
-function render(arr) {
-  const g = document.getElementById("grid");
-  g.innerHTML = "";
-  arr.forEach(x => {
-    // Logika menampilkan gambar thumbnail dari Drive
-    let thumb = "via.placeholder.com";
-    if (x.thumbnail) {
-      const fileId = x.thumbnail.match(/[-\w]{25,}/);
-      if (fileId) thumb = `drive.google.com{fileId}&sz=w400`;
+    // Ambil Data
+    async function loadData() {
+        try {
+            const res = await fetch(API_URL);
+            const json = await res.json();
+            if (Array.isArray(json)) {
+                dataSiswa = json;
+                renderCards(dataSiswa);
+            }
+        } catch (e) {
+            document.getElementById('grid').innerHTML = "<p>Gagal memuat data. Periksa koneksi atau izin Sheet.</p>";
+        }
     }
 
-    g.innerHTML += `
-      <div class="card" onclick='detail(${JSON.stringify(x).replace(/'/g, "&apos;")})'>
-        <img src="${thumb}">
-        <h3>${x.nama_siswa || 'Siswa'}</h3>
-        <p>${x.kelas || '-'} • ${x.program || '-'}</p>
-      </div>`;
-  });
-}
+    function getDriveThumb(url) {
+        if (!url) return "via.placeholder.com";
+        const id = url.match(/[-\w]{25,}/);
+        return id ? `drive.google.com{id}&sz=w600` : url;
+    }
 
+    function renderCards(arr) {
+        const grid = document.getElementById("grid");
+        grid.innerHTML = arr.map((item, index) => `
+            <div class="card" onclick='showDetail(${index})'>
+                <img src="${getDriveThumb(item.thumbnail)}" alt="Karya">
+                <div class="card-content">
+                    <span class="badge">${item.program || 'Umum'}</span>
+                    <h3>${item.nama_siswa || 'Siswa'}</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">Kelas ${item.kelas || '-'}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 
-function tutup(){document.getElementById("modal").style.display="none";}
+    function showDetail(index) {
+        const item = dataSiswa[index];
+        const modal = document.getElementById("modal");
+        const body = document.getElementById("modal-body");
+        
+        body.innerHTML = `
+            <img src="${getDriveThumb(item.thumbnail)}" style="width:100%; border-radius:16px; margin-bottom:20px;">
+            <h2 style="margin:0">${item.nama_siswa}</h2>
+            <p class="badge">${item.kelas} • ${item.program}</p>
+            <p style="color: var(--text-light); line-height: 1.6;">${item.deskripsi || 'Tidak ada deskripsi.'}</p>
+            <a href="${item.link_drive}" target="_blank" style="display:block; text-align:center; padding:12px; background:var(--primary); color:white; text-decoration:none; border-radius:12px; margin-top:20px;">Lihat di Google Drive</a>
+        `;
+        modal.style.display = "flex";
+    }
+
+    function tutup() { document.getElementById("modal").style.display = "none"; }
+
+    // Fitur Search
+    document.getElementById("search").oninput = (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = dataSiswa.filter(s => 
+            JSON.stringify(s).toLowerCase().includes(query)
+        );
+        renderCards(filtered);
+    };
+
+    window.onclick = (e) => { if(e.target == document.getElementById("modal")) tutup(); };
+
+    loadData();
 </script>
+
 </body>
 </html>
