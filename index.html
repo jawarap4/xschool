@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kegiatan Sekolah - SMA Negeri 1 Contoh</title>
+  
+  <!-- SATU FILE CSS SAJA -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Header Navbar -->
+  <header class="navbar">
+    <div class="nav-icon" title="Beranda"><i class="fas fa-home"></i></div>
+    <div class="nav-icon" title="Kegiatan"><i class="fas fa-calendar-alt"></i></div>
+    <a href="#" id="adminBtn" class="nav-admin" title="Admin Panel">
+      <i class="fas fa-lock"></i>
+    </a>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Gambar Utama -->
+    <section class="main-image">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" alt="Update Kegiatan Siswa">
+      <div class="main-caption">
+        <strong>Ekstrakurikuler Robotik</strong><br>
+        Siswa kelas 10 berhasil merakit robot pemadam api dalam lomba nasional.
+      </div>
+    </section>
+
+    <!-- Carousel dengan tombol navigasi -->
+    <section class="carousel-section">
+      <button class="carousel-btn prev-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="carousel-container" id="carouselContainer">
+        <!-- Diisi via JS -->
+      </div>
+      <button class="carousel-btn next-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </section>
+
+    <!-- Tabel Data Siswa -->
+    <section class="table-section">
+      <h3><i class="fas fa-users"></i> Data Siswa Aktif</h3>
+      <div class="table-container">
+        <table id="siswaTable">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Siswa</th>
+              <th>Jenis Kelamin</th>
+              <th>Kelas</th>
+              <th>Kegiatan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Diisi via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Filter Form -->
+    <section class="filter-section">
+      <form id="filterForm" class="compact-form">
+        <select id="jenisKelamin" name="jenisKelamin" class="mini-select">
+          <option value="">Semua Gender</option>
+          <option value="Pria">Pria</option>
+          <option value="Wanita">Wanita</option>
+        </select>
+        <select id="kelas" name="kelas" class="mini-select">
+          <option value="">Semua Kelas</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <select id="kegiatan" name="kegiatan" class="mini-select">
+          <option value="">Semua Kegiatan</option>
+          <option value="IT">IT</option>
+          <option value="Seni">Seni</option>
+          <option value="Robotik">Robotik</option>
+          <option value="Debat">Debat</option>
+        </select>
+        <button type="submit" class="btn-apply">Filter</button>
+        <button type="button" id="resetFilter" class="btn-reset">Reset</button>
+      </form>
+    </section>
+
+    <!-- Social Media -->
+    <section class="social-section">
+      <a href="https://youtube.com/@sman1contoh" target="_blank" class="social-icon youtube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://instagram.com/sman1contoh" target="_blank" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </section>
+
+    <!-- WhatsApp Share Button -->
+    <section class="data-section">
+      <button class="whatsapp-share-btn" onclick="shareToWhatsApp()">
+        <i class="fab fa-whatsapp"></i> Share ke WhatsApp
+      </button>
+      <button id="toggleDataBtn" class="btn-toggle">
+        <i class="fas fa-database"></i> Tampilkan Data JSON
+      </button>
+      <div id="dataContainer" class="data-container hidden">
+        <pre id="jsonDataDisplay"></pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Navbar -->
+  <footer class="footer-navbar">
+    <a href="https://instagram.com/sman1contoh" target="_blank" class="footer-icon" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://youtube.com/@sman1contoh" target="_blank" class="footer-icon" title="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://wa.me/6281234567890" target="_blank" class="footer-icon whatsapp" title="WhatsApp Sekolah">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" id="adminBtnFooter" class="footer-icon admin" title="Admin Panel">
+      <i class="fas fa-user-shield"></i>
+    </a>
+  </footer>
+
+  <!-- Modal Pop-up -->
+  <div id="imageModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <img id="modalImage" src="" alt="Update Kegiatan">
+      <div id="modalCaption" class="modal-caption"></div>
+      <div class="modal-meta">
+        <span><i class="fas fa-calendar"></i> 15 Jan 2024</span>
+        <span><i class="fas fa-map-marker-alt"></i> Lab Robotika</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal -->
+  <div id="adminModal" class="modal hidden">
+    <div class="admin-modal-content">
+      <span class="close-btn admin-close">&times;</span>
+      <h2><i class="fas fa-lock"></i> Admin Login</h2>
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <label for="adminUsername">Username:</label>
+          <input type="text" id="adminUsername" placeholder="Masukkan username" required>
+        </div>
+        <div class="form-group">
+          <label for="adminPassword">Password:</label>
+          <input type="password" id="adminPassword" placeholder="Masukkan password" required>
+        </div>
+        <button type="submit" class="btn-login">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+      </form>
+      <div class="admin-info">
+        <p><strong>Login Default:</strong></p>
+        <p>Username: <code>admin</code></p>
+        <p>Password: <code>password123</code></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+  
+  <!-- WhatsApp Share Function -->
+  <script>
+    function shareToWhatsApp() {
+      const text = "Lihat kegiatan sekolah terbaru di SMA Negeri 1 Contoh!";
+      const url = window.location.href;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text + " " + url)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>

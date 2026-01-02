@@ -1,0 +1,157 @@
+{
+  "config": {
+    "school_name": "SMA Negeri 1 Contoh",
+    "school_motto": "Belajar, Berprestasi, Berkarakter",
+    "address": "Jl. Pendidikan No. 123, Kota Contoh",
+    "whatsapp_number": "6281234567890",
+    "instagram": "@sman1contoh",
+    "youtube": "@sman1contoh",
+    "email": "info@sman1contoh.sch.id",
+    "website": "https://sman1contoh.sch.id",
+    "version": "1.0.0",
+    "last_updated": "2024-01-15"
+  },
+  
+  "main_update": {
+    "id": 1,
+    "title": "Tim Robotik Juara Nasional",
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    "description": "Tim robotik SMA Negeri 1 Contoh berhasil meraih juara 1 dalam kompetisi robotik nasional yang diadakan di Jakarta. Robot pemadam api yang dirancang siswa kelas 11 berhasil mengalahkan 50 tim dari seluruh Indonesia.",
+    "date": "15 Januari 2024",
+    "location": "Jakarta Convention Center",
+    "category": "Prestasi",
+    "tags": ["robotik", "juara", "nasional", "prestasi"],
+    "whatsapp_share_text": "Bangga! Tim robotik sekolah kita juara nasional! 🏆🤖",
+    "status": "published",
+    "author": "Admin Sekolah",
+    "views": 1250
+  },
+  
+  "carousel": [
+    {
+      "id": 2,
+      "title": "Pentas Seni Tahun Baru",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      "description": "Pentas seni menyambut tahun baru 2024 dengan penampilan drama, tari, dan musik dari siswa.",
+      "date": "30 Desember 2023",
+      "location": "Aula Sekolah",
+      "category": "Seni Budaya"
+    },
+    {
+      "id": 3,
+      "title": "Lomba Debat Bahasa Inggris",
+      "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      "description": "Kompetisi debat bahasa Inggris antar kelas dengan tema 'Teknologi dan Pendidikan'.",
+      "date": "10 Januari 2024",
+      "location": "Perpustakaan Sekolah",
+      "category": "Bahasa"
+    },
+    {
+      "id": 4,
+      "title": "Workshop Coding Python",
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      "description": "Pelatihan pemrograman Python untuk siswa yang tertarik dengan dunia teknologi.",
+      "date": "12 Januari 2024",
+      "location": "Lab Komputer",
+      "category": "Teknologi"
+    },
+    {
+      "id": 5,
+      "title": "Bakti Sosial ke Panti Asuhan",
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      "description": "Kegiatan bakti sosial siswa ke panti asuhan terdekat dengan membawa bantuan dan keceriaan.",
+      "date": "5 Januari 2024",
+      "location": "Panti Asuhan Kasih Bunda",
+      "category": "Sosial"
+    },
+    {
+      "id": 6,
+      "title": "Turnamen Futsal Antar Kelas",
+      "image": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      "description": "Kompetisi futsal yang diikuti seluruh kelas dari X sampai XII.",
+      "date": "8 Januari 2024",
+      "location": "Lapangan Sekolah",
+      "category": "Olahraga"
+    },
+    {
+      "id": 7,
+      "title": "Pameran Karya Ilmiah",
+      "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      "description": "Pameran hasil penelitian dan karya ilmiah siswa dalam bidang sains.",
+      "date": "14 Januari 2024",
+      "location": "Laboratorium IPA",
+      "category": "Sains"
+    }
+  ],
+  
+  "students": [
+    {
+      "id": 1,
+      "name": "Ahmad Fauzi",
+      "gender": "Pria",
+      "class": 11,
+      "activity": "Robotik",
+      "achievement": "Juara 1 Robotik Nasional",
+      "photo": null,
+      "join_date": "2022-07-15"
+    },
+    {
+      "id": 2,
+      "name": "Siti Nurhaliza",
+      "gender": "Wanita",
+      "class": 12,
+      "activity": "Seni Tari",
+      "achievement": "Juara 2 Festival Tari Daerah",
+      "photo": null,
+      "join_date": "2021-07-10"
+    },
+    {
+      "id": 3,
+      "name": "Budi Santoso",
+      "gender": "Pria",
+      "class": 10,
+      "activity": "Debat Bahasa Inggris",
+      "achievement": "Best Speaker English Debate",
+      "photo": null,
+      "join_date": "2023-07-20"
+    },
+    {
+      "id": 4,
+      "name": "Dewi Lestari",
+      "gender": "Wanita",
+      "class": 11,
+      "activity": "Programming",
+      "achievement": "Finalis Hackathon Nasional",
+      "photo": null,
+      "join_date": "2022-07-15"
+    },
+    {
+      "id": 5,
+      "name": "Rina Wijaya",
+      "gender": "Wanita",
+      "class": 10,
+      "activity": "Futsal",
+      "achievement": "Top Skor Turnamen Futsal",
+      "photo": null,
+      "join_date": "2023-07-20"
+    },
+    {
+      "id": 6,
+      "name": "Joko Prasetyo",
+      "gender": "Pria",
+      "class": 12,
+      "activity": "Sains",
+      "achievement": "Penelitian Terbaik Pameran Ilmiah",
+      "photo": null,
+      "join_date": "2021-07-10"
+    }
+  ],
+  
+  "activities_summary": {
+    "total_activities": 7,
+    "total_students": 1500,
+    "active_clubs": 12,
+    "upcoming_events": 3,
+    "last_updated": "2024-01-15T10:30:00Z"
+  }
+}

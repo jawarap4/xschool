@@ -1,0 +1,883 @@
+/* =========================================== */
+/* 1. RESET & BASE STYLES                      */
+/* =========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  padding-bottom: 70px;
+  transition: opacity 0.5s ease;
+}
+
+/* =========================================== */
+/* 2. HEADER & NAVIGATION                      */
+/* =========================================== */
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-icon, .nav-admin {
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 8px 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+.nav-icon:hover, .nav-admin:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.nav-admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+/* =========================================== */
+/* 3. MAIN CONTENT - Gambar Utama              */
+/* =========================================== */
+
+.main-image {
+  position: relative;
+  margin: 20px 15px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.main-image img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.main-image img:hover {
+  transform: scale(1.02);
+}
+
+.main-caption {
+  padding: 15px 20px;
+  background: white;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+  border-top: 1px solid #eee;
+}
+
+.main-caption strong {
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+/* =========================================== */
+/* 4. CAROUSEL SECTION dengan tombol           */
+/* =========================================== */
+
+.carousel-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+  background: white;
+  margin: 20px 15px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #667eea;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: #764ba2;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-thumb {
+  flex: 0 0 auto;
+  width: 140px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.carousel-thumb.active img {
+  border-color: #667eea;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.carousel-thumb img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  border: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.carousel-thumb:hover img {
+  border-color: #667eea;
+  transform: scale(1.05);
+}
+
+.thumb-caption {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  color: #555;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================== */
+/* 5. TABEL DATA SISWA                         */
+/* =========================================== */
+
+.table-section {
+  margin: 20px 15px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.table-section h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+#siswaTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+#siswaTable thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+#siswaTable th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+#siswaTable tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s;
+}
+
+#siswaTable tbody tr:hover {
+  background: #f8f9ff;
+}
+
+#siswaTable td {
+  padding: 12px 15px;
+  font-size: 0.9rem;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.badge.kegiatan-it {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.badge.kegiatan-seni {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.badge.kegiatan-robotik {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.badge.kegiatan-debat {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+/* =========================================== */
+/* 6. FILTER FORM                              */
+/* =========================================== */
+
+.filter-section {
+  padding: 20px;
+  background: white;
+  margin: 20px 15px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.compact-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mini-select {
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.mini-select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-apply {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-reset {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.btn-reset:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* =========================================== */
+/* 7. SOCIAL MEDIA SECTION                     */
+/* =========================================== */
+
+.social-section {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  margin: 20px 15px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.social-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.social-icon.youtube {
+  background: linear-gradient(45deg, #FF0000, #FF5353);
+}
+
+.social-icon.instagram {
+  background: linear-gradient(45deg, #405de6, #e1306c, #fd1d1d);
+}
+
+/* =========================================== */
+/* 8. DATA SECTION                             */
+/* =========================================== */
+
+.data-section {
+  padding: 20px;
+  background: white;
+  margin: 20px 15px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.whatsapp-share-btn {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.whatsapp-share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-toggle {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+}
+
+.data-container {
+  margin-top: 20px;
+  text-align: left;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  overflow: auto;
+  max-height: 300px;
+  border: 1px solid #333;
+  color: #d4d4d4;
+  text-align: left;
+}
+
+/* =========================================== */
+/* 9. FOOTER NAVBAR                            */
+/* =========================================== */
+
+.footer-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 12px 0;
+  border-top: 2px solid #e0e0e0;
+  z-index: 999;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.footer-icon {
+  color: #667eea;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.footer-icon:hover {
+  color: #764ba2;
+  background: #f0f2ff;
+  transform: translateY(-3px);
+}
+
+.footer-icon.whatsapp {
+  color: #25d366;
+}
+
+.footer-icon.whatsapp:hover {
+  color: #128c7e;
+  background: #e8f7ed;
+}
+
+.footer-icon.admin {
+  color: #ff6b6b;
+}
+
+.footer-icon.admin:hover {
+  color: #ff4757;
+  background: #ffeaea;
+}
+
+/* =========================================== */
+/* 10. MODAL POP-UP                            */
+/* =========================================== */
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 800px;
+  max-height: 90vh;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #666;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  color: #ff4757;
+}
+
+#modalImage {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-caption {
+  color: #333;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.modal-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.modal-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================== */
+/* 11. ADMIN MODAL                             */
+/* =========================================== */
+
+.admin-modal-content {
+  position: relative;
+  max-width: 400px;
+  width: 90%;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  animation: slideUp 0.3s ease;
+}
+
+.admin-modal-content h2 {
+  color: #667eea;
+  margin-bottom: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.admin-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: left;
+}
+
+.admin-info p {
+  margin: 5px 0;
+}
+
+.admin-info code {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* =========================================== */
+/* 12. RESPONSIVE DESIGN                       */
+/* =========================================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 0;
+  }
+  
+  .main-caption {
+    font-size: 0.85rem;
+    padding: 12px 15px;
+  }
+  
+  .carousel-section {
+    padding: 15px 40px;
+    margin: 15px 10px;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .carousel-thumb {
+    width: 120px;
+  }
+  
+  .table-section,
+  .filter-section,
+  .social-section,
+  .data-section {
+    margin: 15px 10px;
+    padding: 15px;
+  }
+  
+  .compact-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mini-select {
+    max-width: 100%;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .footer-navbar {
+    padding: 10px 0;
+  }
+  
+  .footer-icon {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content,
+  .admin-modal-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-thumb {
+    width: 100px;
+  }
+  
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .whatsapp-share-btn,
+  .btn-toggle {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .footer-icon {
+    font-size: 1.1rem;
+  }
+  
+  #siswaTable th,
+  #siswaTable td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================== */
+/* 13. UTILITY CLASSES                         */
+/* =========================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: flex !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+
+.rounded {
+  border-radius: 10px;
+}
+
+.shadow {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================== */
+/* 14. LOADING ANIMATION                       */
+/* =========================================== */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =========================================== */
+/* 15. SCROLLBAR STYLING                       */
+/* =========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
