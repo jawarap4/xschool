@@ -5,7 +5,7 @@
 // Data carousel dari data.json
 const kegiatanData = [
   {
-    "gambar": "https://ik.imagekit.io/abeS3/border-15.jpg?updatedAt=1766945627219",
+    "gambar": "https://ik.imagekit.io/abeS3/Logo%20Baru.jpg?updatedAt=1766926056006?updatedAt=1766945627219",
     "nama": "Kaligrafi Frame"
   },
   {
@@ -332,6 +332,8 @@ function setupAdminLogin() {
       alert('Login berhasil! (Simulasi)');
       closeAdminModal();
       // Di sini bisa redirect ke halaman admin jika ada
+      localStorage.setItem('adminLoggedIn', 'true');
+    sessionStorage.setItem('adminLoggedIn', 'true');
       window.location.href = '#admin';
     } else {
       alert('Username atau password salah!');
