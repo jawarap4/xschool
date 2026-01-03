@@ -1,8 +1,13 @@
 // Admin Panel Script - XSchool
 // Sinkronisasi dengan app.js dan data.json
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if user is logged in (simple check)
+document.addEventListener('load', function() {
+     if (window.location.hash === '#adminBtn') {
+          window.openAdminModal = function() 
+          const adminModal = document.getElementById('adminModal')
+          if (adminModal) {
+              adminModal.classList.remove('hidden')
+          };
     const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true' || 
                       localStorage.getItem('adminLoggedIn') === 'true';
     
@@ -87,21 +92,21 @@ const kegiatanData = [
 const siswaData = [
     {
         "id": 1,
-        "nama": "Ahmad Fauzi",
+        "nama": "Ahmad Nasichun Ism",
         "jk": "Pria",
         "kelas": 10,
         "kegiatan": "IT"
     },
     {
         "id": 2,
-        "nama": "Siti Nurhaliza",
-        "jk": "Wanita",
+        "nama": "Itmamul Wafa",
+        "jk": "Pria",
         "kelas": 11,
         "kegiatan": "Seni"
     },
     {
         "id": 3,
-        "nama": "Budi Santoso",
+        "nama": "Ainul Fitri",
         "jk": "Pria",
         "kelas": 12,
         "kegiatan": "Debat"
@@ -122,7 +127,7 @@ const siswaData = [
     },
     {
         "id": 6,
-        "nama": "Joko Prasetyo",
+        "nama": "A.Muhtar",
         "jk": "Pria",
         "kelas": 12,
         "kegiatan": "Robotik"

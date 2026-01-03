@@ -1,27 +1,27 @@
 {
   "config": {
-    "school_name": "SMA Negeri 1 Contoh",
+    "school_name": "XSchool ",
     "school_motto": "Belajar, Berprestasi, Berkarakter",
-    "address": "Jl. Pendidikan No. 123, Kota Contoh",
+    "address": "Jl. Pendidikan No. 123, Kota Xschool",
     "whatsapp_number": "6281234567890",
-    "instagram": "@sman1contoh",
-    "youtube": "@sman1contoh",
-    "email": "info@sman1contoh.sch.id",
-    "website": "https://sman1contoh.sch.id",
+    "instagram": "@xschool",
+    "youtube": "@xschool",
+    "email": "info@xschool.sch.id",
+    "website": "https://xschool.sch.id",
     "version": "1.0.0",
     "last_updated": "2024-01-15"
   },
   
   "main_update": {
     "id": 1,
-    "title": "Tim Robotik Juara Nasional",
-    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
-    "description": "Tim robotik SMA Negeri 1 Contoh berhasil meraih juara 1 dalam kompetisi robotik nasional yang diadakan di Jakarta. Robot pemadam api yang dirancang siswa kelas 11 berhasil mengalahkan 50 tim dari seluruh Indonesia.",
-    "date": "15 Januari 2024",
+    "title": "Peserta Nasional Xgrafi 2025",
+    "image": "https://ik.imagekit.io/abeS3/mhrezaa-unsplash.jpg?updatedAt=1766945627083?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    "description": "Peserta nasional Perlatihan XGrafi yang diadakan di Jakarta. Xgrafi-Fans School dari seluruh Indonesia.",
+    "date": "15 Januari 2025",
     "location": "Jakarta Convention Center",
     "category": "Prestasi",
     "tags": ["robotik", "juara", "nasional", "prestasi"],
-    "whatsapp_share_text": "Bangga! Tim robotik sekolah kita juara nasional! 🏆🤖",
+    "whatsapp_share_text": "Bangga! Tim Kaligrafi kita juara nasional! 🏆🤖",
     "status": "published",
     "author": "Admin Sekolah",
     "views": 1250
@@ -33,7 +33,7 @@
       "title": "Pentas Seni Tahun Baru",
       "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
       "description": "Pentas seni menyambut tahun baru 2024 dengan penampilan drama, tari, dan musik dari siswa.",
-      "date": "30 Desember 2023",
+      "date": "30 Desember 2024",
       "location": "Aula Sekolah",
       "category": "Seni Budaya"
     },
@@ -87,7 +87,7 @@
   "students": [
     {
       "id": 1,
-      "name": "Ahmad Fauzi",
+      "name": "Ahmad Nasichun Ism",
       "gender": "Pria",
       "class": 11,
       "activity": "Robotik",
@@ -97,8 +97,8 @@
     },
     {
       "id": 2,
-      "name": "Siti Nurhaliza",
-      "gender": "Wanita",
+      "name": "Itmamul Wafa",
+      "gender": "Pria",
       "class": 12,
       "activity": "Seni Tari",
       "achievement": "Juara 2 Festival Tari Daerah",
@@ -107,7 +107,7 @@
     },
     {
       "id": 3,
-      "name": "Budi Santoso",
+      "name": "Ainul Fitri",
       "gender": "Pria",
       "class": 10,
       "activity": "Debat Bahasa Inggris",
@@ -127,7 +127,7 @@
     },
     {
       "id": 5,
-      "name": "Rina Wijaya",
+      "name": "A. Muhtar",
       "gender": "Wanita",
       "class": 10,
       "activity": "Futsal",
