@@ -127,7 +127,7 @@ const siswaData = [
     },
     {
         "id": 6,
-        "nama": "Joko Prasetyo",
+        "nama": "A.Muhtar",
         "jk": "Pria",
         "kelas": 12,
         "kegiatan": "Robotik"
