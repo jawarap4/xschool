@@ -54,8 +54,8 @@ const siswaData = [
   },
   {
     "id": 5,
-    "nama": "Rina Wijaya",
-    "jk": "Wanita",
+    "nama": "A. Muhtar",
+    "jk": "Pria",
     "kelas": 11,
     "kegiatan": "Seni"
   },
