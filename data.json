@@ -21,7 +21,7 @@
     "location": "Jakarta Convention Center",
     "category": "Prestasi",
     "tags": ["robotik", "juara", "nasional", "prestasi"],
-    "whatsapp_share_text": "Bangga! Tim robotik sekolah kita juara nasional! 🏆🤖",
+    "whatsapp_share_text": "Bangga! Tim Kaligrafi kita juara nasional! 🏆🤖",
     "status": "published",
     "author": "Admin Sekolah",
     "views": 1250
@@ -87,7 +87,7 @@
   "students": [
     {
       "id": 1,
-      "name": "Ahmad Fauzi",
+      "name": "Ahmad Nasichun Ism",
       "gender": "Pria",
       "class": 11,
       "activity": "Robotik",
@@ -97,8 +97,8 @@
     },
     {
       "id": 2,
-      "name": "Siti Nurhaliza",
-      "gender": "Wanita",
+      "name": "Itmamul Wafa",
+      "gender": "Pria",
       "class": 12,
       "activity": "Seni Tari",
       "achievement": "Juara 2 Festival Tari Daerah",
@@ -107,7 +107,7 @@
     },
     {
       "id": 3,
-      "name": "Budi Santoso",
+      "name": "Ainul Fitri",
       "gender": "Pria",
       "class": 10,
       "activity": "Debat Bahasa Inggris",
