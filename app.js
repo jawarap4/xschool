@@ -26,21 +26,21 @@ const kegiatanData = [
 const siswaData = [
   {
     "id": 1,
-    "nama": "Ahmad Fauzi",
+    "nama": "Ahmad Nasichun Ism",
     "jk": "Pria",
     "kelas": 10,
     "kegiatan": "IT"
   },
   {
     "id": 2,
-    "nama": "Siti Nurhaliza",
-    "jk": "Wanita",
+    "nama": "Itmamul Wafa",
+    "jk": "Pria",
     "kelas": 11,
     "kegiatan": "Seni"
   },
   {
     "id": 3,
-    "nama": "Budi Santoso",
+    "nama": "Ainul Fitri",
     "jk": "Pria",
     "kelas": 12,
     "kegiatan": "Debat"
