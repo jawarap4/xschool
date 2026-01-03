@@ -17,6 +17,7 @@ document.addEventListener('load', function() {
         window.location.href = '../index.html#adminBtn';
         return;
     }
+});
     
     // Initialize admin panel
     initializeAdminPanel();
