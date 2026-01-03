@@ -12,7 +12,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+<script>
+// Auto-refresh setiap 30 detik jika ada update
+let lastUpdate = '';
+let checkInterval = null;
 
+function checkForUpdates() {
+  fetch('data.json?' + new Date().getTime())
+    .then(res => res.json())
+    .then(data => {
+      const currentUpdate = data.metadata?.lastUpdated || '';
+      
+      if (lastUpdate && lastUpdate !== currentUpdate) {
+        console.log('🔄 Data updated, reloading...');
+        showUpdateNotification();
+      }
+      
+      lastUpdate = currentUpdate;
+    })
+    .catch(err => console.log('Update check failed:', err));
+}
+
+function showUpdateNotification() {
+  const notification = document.createElement('div');
+  notification.id = 'updateNotification';
+  notification.innerHTML = `
+    <div style="position:fixed; bottom:20px; right:20px; background:#25D366; 
+                color:white; padding:15px; border-radius:8px; z-index:1000;
+                box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+      <strong>🔄 Update Tersedia!</strong><br>
+      <small>Data baru telah dimuat</small><br>
+      <button onclick="location.reload()" style="margin-top:8px; padding:5px 10px; 
+              background:white; color:#25D366; border:none; border-radius:4px;">
+        Refresh Halaman
+      </button>
+    </div>
+  `;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.remove(), 10000);
+}
+
+// Mulai cek update setiap 30 detik
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    checkForUpdates();
+    checkInterval = setInterval(checkForUpdates, 30000);
+  }, 5000);
+});
+</script>
   <!-- Header Navbar -->
   <header class="navbar">
     <div class="nav-icon" title="Beranda"><i class="fas fa-home"></i></div>
