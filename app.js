@@ -538,7 +538,7 @@ function initializeApp() {
 // ===========================================
 }
 document.addEventListener('DOMContentLoaded', initializeApp);
-});
+};
 
 // Fungsi global untuk debugging
 window.debugAdmin = function() {
