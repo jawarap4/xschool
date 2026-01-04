@@ -1,9 +1,9 @@
 // Admin Panel Script - XSchool
 // Sinkronisasi dengan app.js dan data.json
 document.addEventListener('DOMContentLoaded', function() { 
-    // Gunakan DOMContentLoaded agar lebih stabil
     const adminModal = document.getElementById('adminModal');
-    // Memperbaiki fungsi di baris 7
+
+    // Deklarasi fungsi global
     window.openAdminModal = function() { 
         if (adminModal) {
             adminModal.classList.remove('hidden');
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.openAdminModal();
     }
 
+    // Cek Status Login
     const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true' || 
                       localStorage.getItem('adminLoggedIn') === 'true';
     
@@ -23,15 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = '../index.html#adminBtn';
         return;
     }
-});
 
-    
-    // Initialize admin panel
+    // Panggil fungsi inisialisasi di dalam DOMContentLoaded
     initializeAdminPanel();
-    
-    // Setup event listeners
     setupEventListeners();
-});
+}); // <--- PENUTUP YANG BENAR HANYA DI SINI
 
 function initializeAdminPanel() {
     console.log('Admin Panel XSchool Dimuat!');
@@ -44,6 +41,18 @@ function initializeAdminPanel() {
     // Setup modal
     setupEditModal();
 }
+
+function setupEventListeners() {
+    // Tambahkan logika setup event listener di sini
+    console.log('Event Listeners disiapkan');
+}
+
+// Tambahkan fungsi pendukung lainnya agar tidak error saat dipanggil
+function loadSiswaData() { console.log('Memuat data siswa...'); }
+function loadKegiatanData() { console.log('Memuat data kegiatan...'); }
+function updateStatistics() { console.log('Memperbarui statistik...'); }
+function setupEditModal() { console.log('Menyiapkan modal edit...'); }
+
 
 function setupEventListeners() {
     // Form tambah siswa
