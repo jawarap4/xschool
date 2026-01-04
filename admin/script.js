@@ -1,24 +1,30 @@
 // Admin Panel Script - XSchool
 // Sinkronisasi dengan app.js dan data.json
+document.addEventListener('DOMContentLoaded', function() { // Gunakan DOMContentLoaded agar lebih stabil
+    const adminModal = document.getElementById('adminModal');
 
-document.addEventListener('load', function() {
-     if (window.location.hash === '#adminBtn') {
-          window.openAdminModal = function() 
-          const adminModal = document.getElementById('adminModal')
-     };
-          if (adminModal) {
-              adminModal.classList.remove('hidden')
-          };
+    // Memperbaiki fungsi di baris 7
+    window.openAdminModal = function() { 
+        if (adminModal) {
+            adminModal.classList.remove('hidden');
+        }
+    };
+
+    // Menjalankan fungsi jika hash sesuai
+    if (window.location.hash === '#adminBtn') {
+        window.openAdminModal();
+    }
+
     const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true' || 
                       localStorage.getItem('adminLoggedIn') === 'true';
     
     if (!isLoggedIn) {
-        // Redirect to login modal on main page
         alert('Anda harus login sebagai admin terlebih dahulu!');
         window.location.href = '../index.html#adminBtn';
         return;
     }
 });
+
     
     // Initialize admin panel
     initializeAdminPanel();
