@@ -555,9 +555,10 @@ window.debugAdmin = function() {
   setTimeout(() => {
     window.location.href = 'admin/index.html';
   }, 1000);
-  =====================================================================
-  // --- FUNGSI HAPUS ---
-  =====================================================================
+// =====================================================================
+//--- FUNGSI HAPUS ---
+// =====================================================================
+  
 window.deleteSiswa = function(id) {
     if (confirm('Yakin ingin menghapus siswa ini?')) {
         let extra = JSON.parse(localStorage.getItem('siswa_extra')) || [];
