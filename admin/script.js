@@ -615,7 +615,6 @@ function deleteKegiatan(id) {
         loadKegiatanData();
     }
 }
-
 function getKegiatanColor(kegiatan) {
     const colors = {
         'Robotik': 'badge-info',
