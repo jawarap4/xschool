@@ -59,13 +59,6 @@ const siswaData = [
     "kelas": 11,
     "kegiatan": "Seni"
   },
-  {
-    "id": 6,
-    "nama": "Joko Prasetyo",
-    "jk": "Pria",
-    "kelas": 12,
-    "kegiatan": "Robotik"
-  }
 ];
 
 // Variabel global untuk carousel
