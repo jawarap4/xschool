@@ -1,8 +1,8 @@
 // Admin Panel Script - XSchool
 // Sinkronisasi dengan app.js dan data.json
-document.addEventListener('DOMContentLoaded', function() { // Gunakan DOMContentLoaded agar lebih stabil
+document.addEventListener('DOMContentLoaded', function() { 
+    // Gunakan DOMContentLoaded agar lebih stabil
     const adminModal = document.getElementById('adminModal');
-
     // Memperbaiki fungsi di baris 7
     window.openAdminModal = function() { 
         if (adminModal) {
