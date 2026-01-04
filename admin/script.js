@@ -5,6 +5,7 @@ document.addEventListener('load', function() {
      if (window.location.hash === '#adminBtn') {
           window.openAdminModal = function() 
           const adminModal = document.getElementById('adminModal')
+     };
           if (adminModal) {
               adminModal.classList.remove('hidden')
           };
