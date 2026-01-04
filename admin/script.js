@@ -637,3 +637,21 @@ window.syncAdminData = function() {
     // Fungsi ini bisa dipanggil dari app.js untuk sinkronisasi data
     console.log('Admin data sync function available');
 };
+// --- FUNGSI HAPUS ---
+window.deleteSiswa = function(id) {
+    if (confirm('Yakin ingin menghapus siswa ini?')) {
+        let extra = JSON.parse(localStorage.getItem('siswa_extra')) || [];
+        
+        // Cek apakah data ada di localStorage
+        const isExtra = extra.some(s => s.id === id);
+        
+        if (isExtra) {
+            extra = extra.filter(s => s.id !== id);
+            localStorage.setItem('siswa_extra', JSON.stringify(extra));
+            alert('✅ Data berhasil dihapus dari penyimpanan lokal.');
+        } else {
+            alert('⚠️ Data bawaan (sistem) tidak dapat dihapus, hanya data tambahan yang bisa dihapus.');
+        }
+        loadSiswaData(); // Refresh tabel
+    }
+};
