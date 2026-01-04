@@ -536,7 +536,7 @@ function initializeApp() {
 // ===========================================
 // 10. EVENT LISTENER UNTUK MEMUAT APLIKASI
 // ===========================================
-
+}
 document.addEventListener('DOMContentLoaded', initializeApp);
 });
 
