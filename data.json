@@ -135,16 +135,6 @@
       "photo": null,
       "join_date": "2023-07-20"
     },
-    {
-      "id": 6,
-      "name": "Joko Prasetyo",
-      "gender": "Pria",
-      "class": 12,
-      "activity": "Sains",
-      "achievement": "Penelitian Terbaik Pameran Ilmiah",
-      "photo": null,
-      "join_date": "2021-07-10"
-    }
   ],
   
   "activities_summary": {
